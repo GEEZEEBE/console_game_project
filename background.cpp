@@ -15,7 +15,7 @@ int main()
     WINDOW *board = newwin(LINES, COLS, 0, 0); 
     WINDOW *typing = newwin(LINES / 10 * 2, COLS / 2, LINES / 10 * 9, COLS / 4);
     WINDOW *right_grid = newwin(LINES, COLS / 4, 0, 0);
-    WINDOW *left_grid = newwin(LINES, COLS / 4, 0, COLS / 4 * 3);
+    WINDOW *left_grid = newwin(LINES, COLS / 4, 0, COLS - (COLS / 4 * 1));
 
     draw_line(board);
     draw_line(typing);
