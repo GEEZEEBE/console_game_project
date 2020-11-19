@@ -3,7 +3,6 @@
 #include <string>
 #include <curses.h>
 #include <unistd.h>
- 
 
 #define descending_word "string"
 #define eraser "      " // need length  // (cur_y, cur_x + length/2)
@@ -11,48 +10,49 @@
 
 using namespace std;
 
-void set_arr() {
-    int length;
-    cin >> length;
+struct Descending_Item
+{
+    string value;
+    int x_location;
+    int y_location;
+};
 
-    string *sentences = new string[length];
-    delete[] sentences;
-}
-
-int collision_check(int y, int x) {
+int collision_check(int y, int x)
+{
     int campare_ch;
     campare_ch = mvinch(y, x);
     return !((campare_ch == '-'));
 }
 
-void descend()
+void draw_deadline(int deadline)
 {
-    WINDOW *w;
-    w = initscr();
-    
-    int x = 1, y = 0, max_x = COLS - 1, max_y = LINES - 1, deadline = LINES - 5;
-    int cur_y, cur_x;
-    getyx(stdscr, cur_y, cur_x);
-
-    box(w,0,0);
-    for(int j = 0; j < max_x - 1; ++j){
+    for (int j = 0; j < COLS - 1; ++j)
+    {
         mvaddch(deadline, j + 1, '=');
     }
+}
 
-    while(y != max_y - 1) {
+void descend(int y, int x)
+{
+    for (int i = 0; i < LINES - 1; ++i)
+    {
         mvaddstr(++y, x, descending_word);
         mvaddstr(y - 1, x, eraser);
-        collision_check(y,x);
         sleep(1);
         refresh();
     }
-
-    getch();
 }
 
 int main()
 {
-    descend();
+    WINDOW *w;
+    w = initscr();
+    box(w, 0, 0);
+    int x = 1, y = 0, max_x = COLS - 1, max_y = LINES - 1, deadline = LINES - 5;
+    draw_deadline(deadline);
+
+    descend(y, x);
+    getch();
     endwin();
     return 0;
 }
