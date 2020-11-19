@@ -7,16 +7,16 @@
 using namespace std;
 
 void shoot(int y, int x) {
-    int target, ch;
+    int to_target, ch;
     timeout(DELAY);
-    target = LINES;
-    while (--target != y) {
-        mvaddch(target, x, BULLET);
+    to_target = LINES;
+    while (--to_target != y) {
+        mvaddch(to_target, x, BULLET);
     }
     ch = getch();
-    target = LINES;
-    while (--target != y) {
-        mvaddch(target, x, E_TRACE);
+    to_target = LINES;
+    while (--to_target != y) {
+        mvaddch(to_target, x, E_TRACE);
     }
 }
 
@@ -33,7 +33,6 @@ int main() {
 
     WINDOW *w;
     w = initscr();
-    curs_set(0);
     // start main
 
     mvaddch(10, 10, '*');
