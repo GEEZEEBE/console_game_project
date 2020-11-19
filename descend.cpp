@@ -11,6 +11,12 @@
 
 using namespace std;
 
+int is_move_okay(int y, int x) {
+    int campare_ch;
+    campare_ch = mvinch(y, x);
+    return !((campare_ch == '-'));
+}
+
 void descend()
 {
     WINDOW *w;
@@ -22,23 +28,23 @@ void descend()
 
     box(w,0,0);
     for(int j = 0; j < max_x - 1; ++j){
-        mvaddch(deadline, j + 1, '-');
+        mvaddch(deadline, j + 1, '=');
     }
 
     while(y != max_y - 1) {
         mvaddstr(++y, x, descending_word);
         mvaddstr(y - 1, x, eraser);
-
+        is_move_okay(y,x);
         sleep(1);
         refresh();
     }
 
     getch();
-    endwin();
 }
 
 int main()
 {
     descend();
+    endwin();
     return 0;
 }
