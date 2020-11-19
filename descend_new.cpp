@@ -1,8 +1,30 @@
 #include "typeshoot.h"
+#include <cstring>
 
 #define BULLET '^'
 #define E_TRACE ' '
 #define DELAY 200
+
+bool is_correct(codeline *c, char *str) {
+    bool flag = false;
+    if (strcmp(c->code.c_str(), str) == 0) {
+        flag = true;
+    }
+    delete [] str;
+    return flag;
+}
+
+
+char *typecode() {
+    char *input = new char[100];
+    mvaddstr(10, 10, "TYPE CODE : ");
+    echo();
+    wgetnstr(stdscr, input, 100);
+    // clear();
+    // refresh();
+    return input;
+}
+
 
 void shoot(int y, int x) {
     int to_target, ch;
@@ -27,10 +49,9 @@ void descend(codeline *c) {
     }
 
     for (int i = 0; i < LINES - 1; ++i) {
-        ch = getch();
-        if (ch == 'a') {
-            c->is_alive = false;
+        if (is_correct(c, typecode())) {
             shoot(c->y, c->x+c->length/2);
+            c->is_alive = false;
         }
 
         if (c->is_alive) {
