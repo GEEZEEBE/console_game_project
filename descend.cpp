@@ -6,10 +6,18 @@
  
 
 #define descending_word "string"
-#define eraser "      " // need length
+#define eraser "      " // need length  // (cur_y, cur_x + length/2)
 #define makeup "------"
 
 using namespace std;
+
+void set_arr() {
+    int length;
+    cin >> length;
+
+    string *sentences = new string[length];
+    delete[] sentences;
+}
 
 int collision_check(int y, int x) {
     int campare_ch;
