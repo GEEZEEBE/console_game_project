@@ -21,5 +21,6 @@ void score(void);
 void backgroud(void);
 void inputfile(void);
 codeline *code_create(int, int);
+void code_destroy(codeline *);
 
 
