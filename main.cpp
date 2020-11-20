@@ -20,14 +20,19 @@ int main(void) {
     char ln[100];
     int len = 0, lines_read = 0;
     while(1) {
-        len = get_line_non_blocking(&lnbuffer, ln, sizeof(ln));
 
-        if (c != nullptr) descend(c);
+        if (c != nullptr) {
+            descend(c);
+            sleep_milli(100);
+        }
         else {
             c = code_create(1, 1);
             code_display(c);
         }
 
+        len = get_line_non_blocking(&lnbuffer, ln, sizeof(ln));
+        move(LINES-10, COLS/2);
+        render_line(&lnbuffer);
         if(len > 0) {
             if(strcmp(ln, c->code.c_str()) == 0) {
                 shoot(c->y, c->x+c->length/2);
@@ -39,8 +44,7 @@ int main(void) {
             mvaddstr(2 + lines_read, 100, ln);
             lines_read ++;
         }
-        // move(50, 50);
-        // render_line(&lnbuffer);
+
 
 
         // Show that we are active

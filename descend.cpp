@@ -19,7 +19,7 @@ void descend(codeline *c) {
         //     code_destroy(c);
         //     return;
         // }
-        sleep_milli(500);
+        // sleep_milli(100);
         refresh();
     // }
 }

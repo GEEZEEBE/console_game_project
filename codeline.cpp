@@ -3,6 +3,7 @@
 #include <cstring>
 #include <time.h>
 
+#define _POSIX_C_SOURCE 199309L
 
 codeline *code_create(int y, int x) {
     codeline *c = new codeline;
@@ -28,15 +29,14 @@ void code_init(codeline *c) {
 
 void code_display(codeline *c) {
     mvaddstr(1, c->x, c->code.c_str());
+    refresh();
 }
 
 void code_destroy(codeline *c) {
     mvaddstr(c->y, c->x, c->e_tracer.c_str());
+    refresh();
 }
 
-
-
-    // nanosleep
 
 
 void sleep_milli(int milliseconds)

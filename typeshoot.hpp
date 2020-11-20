@@ -34,6 +34,6 @@ char *typecode();
 void code_display(codeline *);
 void code_init(codeline *);
 
-void sleep_milli(int milliseconds);
+void sleep_milli(int);
 
 
