@@ -1,12 +1,14 @@
 #include <ncurses.h>
 #include <iostream>
 
+/*
 using namespace std;
 
 void draw_line(WINDOW *w)
 {
     box(w, 0, 0);
 }
+
 
 int main()
 {
@@ -37,3 +39,4 @@ int main()
     endwin();
     return 0;
 }
+*/

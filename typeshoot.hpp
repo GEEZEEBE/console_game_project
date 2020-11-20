@@ -9,7 +9,14 @@ struct codeline {
     string code;
     int x, y;
     int length;
+    string e_tracer;
     bool is_alive;
+
+    void make_tracer() {
+        for (int i = 0; i < code.length(); i++) {
+            e_tracer += ' ';
+        }
+    }
 };
 
 void descend(codeline *);
@@ -24,5 +31,6 @@ codeline *code_create(int, int);
 void code_destroy(codeline *);
 bool is_correct(codeline *, char *);
 char *typecode();
+void code_display(codeline *);
 
 

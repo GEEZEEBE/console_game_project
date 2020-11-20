@@ -5,6 +5,7 @@
 
 using namespace std;
 
+/*
 int main()
 {
     // setting up string
@@ -51,3 +52,4 @@ int main()
     // ending screen
     endwin();
 }
+*/

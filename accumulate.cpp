@@ -1,4 +1,4 @@
-#include "typeshoot.h"
+#include "typeshoot.hpp"
 
 void accumulate() {
 

@@ -8,6 +8,7 @@ void draw_line(WINDOW *w)
     box(w, 0, 0);
 }
 
+/*
 int main()
 {
     initscr();
@@ -31,3 +32,4 @@ int main()
     endwin();
     return 0;
 }
+*/

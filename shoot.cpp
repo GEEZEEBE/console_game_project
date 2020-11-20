@@ -1,4 +1,4 @@
-#include "typeshoot.h"
+#include "typeshoot.hpp"
 
 #define BULLET '^'
 #define E_TRACE ' '
@@ -20,7 +20,7 @@ void shoot(int y, int x) {
     }
 }
 
-
+/*
 int main() {
 
     // CURSES initialization:
@@ -48,3 +48,4 @@ int main() {
 
     return 0;
 }
+*/
