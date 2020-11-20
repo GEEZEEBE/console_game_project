@@ -32,5 +32,8 @@ void code_destroy(codeline *);
 bool is_correct(codeline *, char *);
 char *typecode();
 void code_display(codeline *);
+void code_init(codeline *);
+
+void sleep_milli(int milliseconds);
 
 

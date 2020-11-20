@@ -1,6 +1,7 @@
 #include "typeshoot.hpp"
 #include "non_blocking_typing.hpp"
 #include <cstring>
+#include <time.h>
 
 
 codeline *code_create(int y, int x) {
@@ -15,13 +16,33 @@ codeline *code_create(int y, int x) {
     return c;
 }
 
+void code_init(codeline *c) {
+    c->code = "kkkkkkk";
+    c->y = 1;
+    c->x = 20;
+    c->length = c->code.length();
+    c->is_alive = true;
+    c->make_tracer();
+
+}
+
 void code_display(codeline *c) {
     mvaddstr(1, c->x, c->code.c_str());
 }
 
 void code_destroy(codeline *c) {
-  free(c);
+    mvaddstr(c->y, c->x, c->e_tracer.c_str());
 }
 
 
 
+    // nanosleep
+
+
+void sleep_milli(int milliseconds)
+{
+  struct timespec ts;
+  ts.tv_sec = 0;
+  ts.tv_nsec = milliseconds * 1000 * 1000;
+  nanosleep(&ts, NULL);
+}

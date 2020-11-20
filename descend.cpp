@@ -11,16 +11,16 @@ void descend(codeline *c) {
         //     c->is_alive = false;
         // }
 
-        if (c->is_alive) {
+        // if (c->is_alive) {
             mvaddstr(++c->y, c->x, c->code.c_str());
             mvaddstr(c->y - 1, c->x, c->e_tracer.c_str());
-        } else {
-            mvaddstr(c->y, c->x, c->e_tracer.c_str());
-            code_destroy(c);
-            return;
-        }
-        sleep(1);
-        // refresh();
+        // } else {
+        //     mvaddstr(c->y, c->x, c->e_tracer.c_str());
+        //     code_destroy(c);
+        //     return;
+        // }
+        sleep_milli(500);
+        refresh();
     // }
 }
 

@@ -1,6 +1,7 @@
 #include <ncurses.h>
 #include <iostream>
 
+/*
 using namespace std;
 int main()
 {
@@ -43,3 +44,4 @@ int main()
     delwin(win2);
     endwin();
 }
+*/
