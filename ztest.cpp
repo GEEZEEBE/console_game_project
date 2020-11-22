@@ -38,6 +38,7 @@ void init_arr(array *stacked_space){
         }
 }
 
+/*
 void descend(codeline *c, array *a)
 {
     for (int i = 0; i < LINES - 1; ++i)
@@ -66,3 +67,4 @@ int main()
     endwin();
     return 0;
 }
+*/

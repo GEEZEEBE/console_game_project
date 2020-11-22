@@ -10,7 +10,7 @@ struct codeline {
     int x, y;
     int length;
     string e_tracer;
-    bool is_alive;
+    bool is_down;
 
     void make_tracer() {
         for (int i = 0; i < code.length(); i++) {
@@ -27,13 +27,25 @@ void accumulate(void);
 void score(void);
 void backgroud(void);
 void inputfile(void);
-codeline *code_create(int, int);
-void code_destroy(codeline *);
+codeline *code_create();
+void code_destroy(codeline *, int);
 bool is_correct(codeline *, char *);
 char *typecode();
 void code_display(codeline *);
 void code_init(codeline *);
+bool is_overline(codeline *);
+void stopdescend(codeline *, codeline *);
+void stopcode_display(codeline **, int);
+string get_str(int);
+int rand_num(int, int);
+codeline *copy_codeline(codeline *);
+char **matrix_init();
+bool matrix_check(char **, codeline *);
+int set_matrix(char **, codeline *);
+void gameover();
 
+bool is_bottom(codeline *);
 void sleep_milli(int);
+
 
 
