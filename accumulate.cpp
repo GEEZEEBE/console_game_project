@@ -36,13 +36,14 @@ int set_matrix(char **matrix, codeline *c) {
     int x = c->x;
     int line = y - (LINES-1)/2;
     int column = x - (COLS-1)/6;
-    if (line < 0)
+    if (line < 0) {
         return -1;
-    else {
+    } else {
         for (int i=column; i<(column+c->length); i++) {
             matrix[line][i] = 1;
         }
     }
+    return 0;
 }
 
 bool is_overline(codeline *c) {
