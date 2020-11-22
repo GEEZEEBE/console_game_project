@@ -4,33 +4,26 @@
 #include <stdlib.h>
 #include <random>
 
-#define _POSIX_C_SOURCE 199309L
+// #define _POSIX_C_SOURCE 199309L
 
-string get_str(int i) {
-    string codes[] = {"aaa", "bbbbb", "ccccc", "ddddd", "eeeee"};
+
+string get_str(string *codes, int i) {
     return codes[i];
 }
 
 
-codeline *code_create() {
+codeline *code_create(string *code_array, int total) {
     codeline *c = new codeline;
-    c->code = get_str(rand_num(0, 4));
-    c->y = 1;
-    c->x = rand_num((COLS-1)/3, 2*(COLS-1)/3-c->length);
+    c->code = get_str(code_array, rand_num(0, total));
     c->length = c->code.length();
+    c->y = 1;
+    c->x = rand_num((COLS-1)/6+2, 5*(COLS-1)/6-c->length);
     c->is_down = true;
     c->make_tracer();
 
     return c;
 }
 
-void code_init(codeline *c) {
-    random_device rd;
-    mt19937_64 mersenne_twister_engine(rd());
-    uniform_int_distribution<> dice(1, COLS-c->length);
-    int x = dice(mersenne_twister_engine);
-    c->x = x;
-}
 
 void code_display(codeline *c) {
     mvaddstr(1, c->x, c->code.c_str());

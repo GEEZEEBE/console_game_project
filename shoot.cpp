@@ -9,12 +9,12 @@ using namespace std;
 void shoot(int y, int x) {
     int to_target, ch;
     timeout(DELAY);
-    to_target = LINES;
+    to_target = (LINES-1)-(LINES-1)/4;
     while (--to_target != y) {
         mvaddch(to_target, x, BULLET);
     }
     ch = getch();
-    to_target = LINES;
+    to_target = (LINES-1)-(LINES-1)/4;
     while (--to_target != y) {
         mvaddch(to_target, x, E_TRACE);
     }
