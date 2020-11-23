@@ -62,7 +62,7 @@ int main(int argc, char **argv) {
         }
         else {
             descend(c);
-            sleep_milli(300);
+            sleep_milli(500);
             // sleep_milli(20);
         }
 
